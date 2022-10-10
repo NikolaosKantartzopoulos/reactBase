@@ -21,13 +21,17 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(png|jp(e*)g|svg|gif)$/,
-				use: ["file-loader"],
+				test: /\.(woff|woff2|eot|ttf|otf)$/i,
+				type: "asset/resource",
+			},
+			{
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
+				type: "asset/resource",
 			},
 			{
 				test: /\.css$/,
 				include: path.resolve(__dirname, "src"),
-				use: ["style-loader", "css-loader", "postcss"],
+				use: ["style-loader", "css-loader", "postcss-loader"],
 			},
 		],
 	},
