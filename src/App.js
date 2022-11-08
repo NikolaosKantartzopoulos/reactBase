@@ -1,15 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import cog from "./images/cog.png";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About";
 
-class App extends Component {
-	render() {
-		return (
+function App() {
+	return (
+		<>
 			<div className="flex bg-red-500">
 				<img src={cog} />
-				<h1 className="bg-black text-red-500 text-center p-2"> Hello world!</h1>
+				<Navbar />
 			</div>
-		);
-	}
+			<Routes>
+				<Route path="/dist/index.html" element={<Navigate replace to="/" />} />
+				<Route path="/" element={<Home />} />
+				<Route path="/about" element={<About />} />
+			</Routes>
+		</>
+	);
 }
 
 export default App;
